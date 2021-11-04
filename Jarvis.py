@@ -15,7 +15,13 @@ def falar(audio):
     falar(Tempo)
 
 def date():
-    ano = datetime.datetime.now().year
-    mes = datetime.datetime.now().month
-    dia = datetime.datetime.now().day
+    ano = int(datetime.datetime.now().year)
+    mes = int(datetime.datetime.now().month)
+    dia = int(datetime.datetime.now().day)
 
+    falar("a data atual é: ")
+    falar(dia)
+    falar(mes)
+    falar(ano)
+
+date()
