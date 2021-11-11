@@ -41,4 +41,6 @@ def bem_vindo():
 
     else:
         falar("Boa madrugada zombie!")
+
+    falar("jarvis a sua disposição, diga como posso te ajudar!")
 bem_vindo()
