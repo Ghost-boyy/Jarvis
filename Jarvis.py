@@ -11,10 +11,10 @@ def falar(audio):
     texto_fala.say(audio)
     texto_fala.runAndWait()
 
-def tempo():
+#def tempo():
     #Tempo = datetime.datetime.now().strftime("%:%M")
-    falar("Agora são")
-    falar(Tempo)
+    #falar("Agora são")
+   # falar(Tempo)
     
 
 def data():
@@ -26,5 +26,5 @@ def data():
     falar("de" + mes)
     falar("de"+ ano)
 
-tempo()
+#tempo()
 data()
