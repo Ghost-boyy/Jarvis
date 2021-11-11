@@ -1,3 +1,4 @@
+from typing_extensions import Annotated
 import pyttsx3
 import datetime
 texto_fala = pyttsx3.init()
@@ -12,5 +13,13 @@ def falar(audio):
 
 def tempo():
     Tempo = texto_fala.getProperty("%I:%M")
+    
     falar(Tempo)
-    tempo(Tempo)
+    
+
+def data():
+    ano = str(datetime.datetime.now().year)
+    mes = str(datetime.datetime.now().month)
+    dia = str(datetime.datetime.now().day)
+    falar("a data atual é: ")
+    falar(dia)
