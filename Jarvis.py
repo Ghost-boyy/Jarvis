@@ -26,10 +26,19 @@ def data():
     falar("de"+ ano)
 
 def bem_vindo():
-    falar("olá jhon oliveira . seja bem vindo de volta!")
+    falar("olá j.t . seja bem vindo de volta!")
     tempo()
     data()
-    
+
     hora = datetime.datetime.now().hour
 
+    if hora >= 6 and hora <12:
+        falar("bom dia J.t!")
+    elif  hora >=12 and hora < 18:
+        falar("boa tarde j.t!")
+    elif hora >= 18 and hora <=24:
+        falar("boa noite j.t!")
+
+    else:
+        falar("Boa madrugada zombie!")
 bem_vindo()
