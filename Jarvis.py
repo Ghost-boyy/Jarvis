@@ -10,18 +10,7 @@ def falar(audio):
     texto_fala.say(audio)
     texto_fala.runAndWait()
 
-    Tempo = datetime.datetime.now().strftime("%I:%M:%S")
-    falar("Agora são: ")
+def tempo():
+    Tempo = texto_fala.getProperty("%I:%M")
     falar(Tempo)
-
-def date():
-    ano = int(datetime.datetime.now().year)
-    mes = int(datetime.datetime.now().month)
-    dia = int(datetime.datetime.now().day)
-
-    falar("a data atual é: ")
-    falar(dia)
-    falar(mes)
-    falar(ano)
-
-date()
+    tempo(Tempo)
