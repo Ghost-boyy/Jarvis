@@ -7,12 +7,12 @@ def falar(audio):
     rate = texto_fala.getProperty('rate')
     texto_fala.setProperty("rate",170)# Alterar a velocidade da fala
     voices = texto_fala.getProperty('voices')
-    texto_fala.setProperty('voice',voices[1].id)
+    texto_fala.setProperty('voice',voices[2].id)
     texto_fala.say(audio)
     texto_fala.runAndWait()
 
 def tempo():
-    Tempo = datetime.datetime.now().strftime("% : %M: %S")
+    Tempo = datetime.datetime.now().strftime("%I:%M")
     falar("Agora são")
     falar(Tempo)
     
@@ -26,6 +26,10 @@ def data():
     falar("de"+ ano)
 
 def bem_vindo():
-    falar("olá Jhon.seja bem vindo de volta!")
+    falar("olá jhon oliveira . seja bem vindo de volta!")
     tempo()
     data()
+    
+    hora = datetime.datetime.now().hour
+
+bem_vindo()
