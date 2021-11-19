@@ -1,5 +1,7 @@
 import pyttsx3
 import datetime
+#import  pyaudio
+
 
 texto_fala = pyttsx3.init()
 
@@ -43,4 +45,7 @@ def bem_vindo():
         falar("Boa madrugada zombie!")
 
     falar("jarvis a sua disposição, diga como posso te ajudar!")
+
+
+
 bem_vindo()
