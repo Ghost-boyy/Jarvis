@@ -1,51 +1,45 @@
 import pyttsx3
 import datetime
-#import  pyaudio
+import pygame
 
-
+# Inicializa a engine de texto para fala
 texto_fala = pyttsx3.init()
 
+# Inicializa o mixer do pygame
+pygame.mixer.init()
+
 def falar(audio):
-    rate = texto_fala.getProperty('rate')
-    texto_fala.setProperty("rate",170)# Alterar a velocidade da fala
-    voices = texto_fala.getProperty('voices')
-    texto_fala.setProperty('voice',voices[2].id)
+    # Configurações da voz
+    texto_fala.setProperty("rate", 170)  # Alterar a velocidade da fala
+    voz = texto_fala.getProperty('voices')[2]  # Seleciona uma voz (ajuste conforme necessário)
+    texto_fala.setProperty('voice', voz.id)
     texto_fala.say(audio)
     texto_fala.runAndWait()
 
-def tempo():
-    Tempo = datetime.datetime.now().strftime("%I:%M")
-    falar("Agora são")
-    falar(Tempo)
-    
-def data():
-    ano = str(datetime.datetime.now().year)
-    mes = str(datetime.datetime.now().month)
-    dia = str(datetime.datetime.now().day)
-    falar("a data atual é: ")
-    falar(dia)
-    falar("de" + mes)
-    falar("de"+ ano)
+def cumprimento():
+    hora = datetime.datetime.now().hour
+    if 6 <= hora < 12:
+        return "bom dia"
+    elif 12 <= hora < 18:
+        return "boa tarde"
+    elif 18 <= hora <= 24:
+        return "boa noite"
+    else:
+        return "boa madrugada"
 
 def bem_vindo():
-    falar("olá j.t . seja bem vindo de volta!")
-    tempo()
-    data()
+    falar("Olá J.T., " + cumprimento() + "!")
+    agora = datetime.datetime.now()
+    falar("Agora são " + agora.strftime("%H:%M") + " horas, do dia " + agora.strftime("%d de %B de %Y"))
+    falar("Jarvis está à sua disposição. Como posso te ajudar?")
 
-    hora = datetime.datetime.now().hour
+def reproduzir_musica(musica):
+    pygame.mixer.music.load(musica)
+    pygame.mixer.music.play()
 
-    if hora >= 6 and hora <12:
-        falar("bom dia J.t!")
-    elif  hora >=12 and hora < 18:
-        falar("boa tarde j.t!")
-    elif hora >= 18 and hora <=24:
-        falar("boa noite j.t!")
+if __name__ == "__main__":
+    bem_vindo()
 
-    else:
-        falar("Boa madrugada zombie!")
-
-    falar("jarvis a sua disposição, diga como posso te ajudar!")
-
-
-
-bem_vindo()
+    # Exemplo de reprodução de música
+    musica = "caminho/para/sua/musica.mp3"
+    reproduzir_musica(musica)
